@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Exploring a hilly city",
+    "section": "",
+    "text": "1 Preface\nWalkability is a subset of quantitative accessibility analyses (which tend to be multi-modal). Walkability is also a qualitative framework of theoretical concepts that underpin people’s preference for walking. A useful framework that considers multiple facets of walking is the 5C’s of walkability [1]:\n\nConvenient\nConvivial\nConnected\nComfortable\nConspicuous\n\nConvenient and Connected include various aspects of the built environment across urban form and transport infrastructure including provision of walking paths, density of amenities, convenience of routes (direct rather than roundabout) etc. Spatial data science is especially relevant here e.g. point pattern analysis (of amenities) and spatial network analysis to better understand the structure of connectivity and potential routes.\nConvenience is also influenced by the natural topography. While most cities of the world have come up and spread along areas of flat and mild gradients, inclined streets exist due to nearby hills and mountains. Pronounced examples of predominantly hilly cities include São Paolo, Brazil and Wellington, New Zealand. Unfortunately, walkability analyses typically ignore the impact of street inclines since the majority of large cities are predominantly flat.\nChapter 2 describes the topographical challenge for Wellington walkers - especially those in suburbs. Chapter 3 outlines how network routing can be tuned to better represent real world walking times. Chapter 4 uses network routing to analyse a simple case of local walkability questioning whether the walk to the park is as easy as a walk in the park? Chapter 5 compares potential for walking to actual walking.\n\n\n\n\n[1] L. planning Advisory Committee, “Putting london back on its feet: A strategy for walking in london,” 1997."
+  },
+  {
+    "objectID": "hilly_city.html#all-streets",
+    "href": "hilly_city.html#all-streets",
+    "title": "2  A hilly city",
+    "section": "2.1 All streets",
+    "text": "2.1 All streets\nA gradient map of the city streets is dominated by orange and red. The summary table indicates that only 56% of streets in the city are flat or mild gradients most comfortable for walking for all abilities.\n\nMapSummary\n\n\n\n\n\n\n\nFigure 2.2: Street gradients for all streets in Wellington.\n\n\n\n\n\n\n\n\n\n\nTable 2.1: Simple count proportion of all streets in Wellington by gradient.\n\n\nSlope\n%\n\n\n\n\n0-3: flat\n41.8\n\n\n3-5: mild\n12.5\n\n\n5-8: medium\n13.5\n\n\n8-10: hard\n7.4\n\n\n10-20: extreme\n16.8\n\n\n&gt;20: impossible\n7.9\n\n\n\n\n\n\n\n\n\n\n\nCompared to Wellington, the streets of Lisbon and Leeds are predominantly flat. Zurich has extensive hilly streets in the outskirts but the expanse of green appears considerably larger than Wellington.\n\n\n\n\n\n\n\n(a) Lisbon\n\n\n\n\n\n\n\n(b) Leeds\n\n\n\n\n\n\n\n(c) Zurich\n\n\n\n\nFigure 2.3: Street gradients for sample European cities from here. Street gradient colours are the same as Figure 2.2 and Figure 2.5."
+  },
+  {
+    "objectID": "hilly_city.html#residential",
+    "href": "hilly_city.html#residential",
+    "title": "2  A hilly city",
+    "section": "2.2 Residential",
+    "text": "2.2 Residential\nFigure 2.4 shows the topographical division of urban form with tall buildings in the flat city centre and residential housing spreading all over the nearby hills. If we only consider residential areas, the topographical profile of the city slips with more than 60% of streets of at least medium gradient.\n\n\n\nFigure 2.4: View of Wellington city (flat) and the surrounding hilly suburbs. Author’s own photo.\n\n\n\nMapSummary\n\n\n\n\n\n\n\nFigure 2.5: Street gradients for residential streets in Wellington.\n\n\n\n\n\n\n\n\n\n\nTable 2.2: Simple count proportion of residential streets in Wellington by gradient.\n\n\nSlope\n%\n\n\n\n\n0-3: flat\n22.3\n\n\n3-5: mild\n15.4\n\n\n5-8: medium\n28.7\n\n\n8-10: hard\n15.6\n\n\n10-20: extreme\n17.4\n\n\n&gt;20: impossible\n0.6"
+  },
+  {
+    "objectID": "network_analysis.html#tools-analysis-and-code",
+    "href": "network_analysis.html#tools-analysis-and-code",
+    "title": "3  Network analysis",
+    "section": "3.1 Tools, analysis and code",
+    "text": "3.1 Tools, analysis and code\nThe walkability analyses in Chapter 3 and Chapter 4 were carried out in Python. They are described in detail in a series of blog posts ([4], [5], [6], [7]) and in Jupyter notebooks on Github [8].\nKey Python packages for the analyses are osmnx and pandana. osmnx not only facilitates data downloads from Openstreetmap but also converts streets to a network representation for network analysis / routing. pandana speeds up the many-to-many travel distance calculations to a matter of seconds. pandana is able to run many-to-many calculations of origin to nearest destination (and upto 10th nearest) - where every intersection node in the street network is the origin.\nAnalyses in Chapter 2 and Chapter 5 were carried out in R and relied on osmdata, sf, sfnetworks [9], elevatr [10] and slopes [11]. It’s possible to convert the walkability analysis from Python to R but it’s likely that sfnetworks will not be as performant as pandana for many-to-many routing at the scale of a city. dodgr [12] looks promising in this regard. One of the advantages of R (over Python) is the sophistication of packages for data visualisation and statistical modelling."
+  },
+  {
+    "objectID": "network_analysis.html#converting-distance-to-time",
+    "href": "network_analysis.html#converting-distance-to-time",
+    "title": "3  Network analysis",
+    "section": "3.2 Converting distance to time",
+    "text": "3.2 Converting distance to time\nDistance is a good metric for planners as it is objective. However, citizens rarely think in this metric while walking. Travel times according to their own abilities is the rubric of choice. This can pose problems as people’s sense of time can be subjective and highly variable. The best way to address the variability is by fitting distance to travel time functions to data collected from travel surveys or fitness apps [13] [14]. Unfortunately, collecting the relevant data for the area in question and fitting the appropriate functions is a research project in its own right so the simplest and most well-known approach, Tobler’s Hiking function [15], has been used in this study.\n\n\n\nFigure 3.1: Brunsdon’s function is taken from [16].\n\n\n\n\n\n\n[1] G. D. Simons, “Network centrality measures and their correlation to mixed-uses at the pedestrian-scale,” Jul. 01, 2021. http://arxiv.org/abs/2106.14040 (accessed Dec. 29, 2022).\n\n\n[2] C. Barrington-Leigh and A. Millard-Ball, “Global trends toward urban street-network sprawl,” Proc. Natl. Acad. Sci. U.S.A., vol. 117, no. 4, pp. 1941–1950, Jan. 2020, doi: 10.1073/pnas.1905232116.\n\n\n[3] L. planning Advisory Committee, “Putting london back on its feet: A strategy for walking in london,” 1997.\n\n\n[4] S. Ravi, “Walking in Wellington,” Nov. 29, 2020. https://shriv-portfolio.netlify.app/post/walkability-1/ (accessed Aug. 27, 2023).\n\n\n[5] S. Ravi, “Walking in Wellington - walkability metrics,” Nov. 29, 2020. https://shriv-portfolio.netlify.app/post/walkability-2/ (accessed Aug. 27, 2023).\n\n\n[6] S. Ravi, “Walking in Wellington - insights from modelling,” Nov. 29, 2020. https://shriv-portfolio.netlify.app/post/walkability-4/ (accessed Aug. 27, 2023).\n\n\n[7] S. Ravi, “Walking in Wellington - validation and visualisation,” Dec. 08, 2020. https://shriv-portfolio.netlify.app/post/walkability-3/ (accessed Aug. 27, 2023).\n\n\n[8] shriv, “Shriv/accessibility-series.” Nov. 18, 2019. Accessed: Aug. 27, 2023. [Online]. Available: https://github.com/shriv/accessibility-series\n\n\n[9] “Luukvdmeer/sfnetworks: Tidy Geospatial Networks in R.” https://github.com/luukvdmeer/sfnetworks/ (accessed Aug. 27, 2023).\n\n\n[10] J. W. Hollister, “Elevatr.” Jul. 27, 2023. Accessed: Aug. 27, 2023. [Online]. Available: https://github.com/jhollist/elevatr\n\n\n[11] “Slopes package.” rOpenSci, Aug. 23, 2023. Accessed: Aug. 27, 2023. [Online]. Available: https://github.com/ropensci/slopes\n\n\n[12] “Dodgr: Distances on Directed Graphs in R.” Urban Analyst, Aug. 24, 2023. Accessed: Aug. 27, 2023. [Online]. Available: https://github.com/UrbanAnalyst/dodgr\n\n\n[13] M. J. Campbell, P. E. Dennison, B. W. Butler, and W. G. Page, “Using crowdsourced fitness tracker data to model the relationship between slope and travel rates,” Applied Geography, vol. 106, pp. 93–107, May 2019, doi: 10.1016/j.apgeog.2019.03.008.\n\n\n[14] M. F. Goodchild, “Beyond Tobler’s Hiking Function,” Geogr. Anal., vol. 52, no. 4, pp. 558–569, Oct. 2020, doi: 10.1111/gean.12253.\n\n\n[15] W. Tobler, “Three Presentations on Geographical Analysis and Modeling: Non- Isotropic Geographic Modeling; Speculations on the Geometry of Geography; and Global Spatial Analysis (93-1),” Feb. 1993, Accessed: Aug. 27, 2023. [Online]. Available: https://escholarship.org/uc/item/05r820mz\n\n\n[16] “RPubs - Tobler&#39;s Hiking Function Revisited.” https://rpubs.com/chrisbrunsdon/hiking (accessed Aug. 27, 2023)."
+  },
+  {
+    "objectID": "walkability.html#distance-and-speed-on-hilly-terrain",
+    "href": "walkability.html#distance-and-speed-on-hilly-terrain",
+    "title": "4  Walkability",
+    "section": "4.1 Distance and speed on hilly terrain",
+    "text": "4.1 Distance and speed on hilly terrain\nDistance-based planning is easy and objective. However, it doesn’t translate well to people’s decision making which are typically time-centric and, account for the 5Cs of walkability [1]. Hence, even simple distance to time conversions can be more informative to the layperson planning a walking trip to the park. ?fig-map-dist-time shows a conversion from distance to time assuming a speed of 5km/h - a common conversion based on a fit adult e.g. Section 3.4 in NZTA pedestrian planning and design guide.\n\nAs expected, the histograms of distance and time with a linear conversion look the same with the time variant being more useful for comparison with an upcoming trip - much like typical Google map direction checks."
+  },
+  {
+    "objectID": "walkability.html#differences-due-to-hills",
+    "href": "walkability.html#differences-due-to-hills",
+    "title": "4  Walkability",
+    "section": "4.3 Differences due to hills",
+    "text": "4.3 Differences due to hills\nWhile the Wellington City Council (WCC) plans playgrounds based on distance, the presence of hills can increase travel times by up 20 minutes."
+  },
+  {
+    "objectID": "walkability.html#walkability-by-suburb",
+    "href": "walkability.html#walkability-by-suburb",
+    "title": "4  Walkability",
+    "section": "4.4 Walkability by suburb",
+    "text": "4.4 Walkability by suburb\n\n\n\nForest plot showing average (\\(\\mu\\)) and spread (\\(\\sigma\\)) in walking time to the nearest playground.\n\n\n\n\n\n\n[1] L. planning Advisory Committee, “Putting london back on its feet: A strategy for walking in london,” 1997."
+  },
+  {
+    "objectID": "preference.html",
+    "href": "preference.html",
+    "title": "5  Walking preference",
+    "section": "",
+    "text": "While quantitative walkability indicators measure the “potential for walking”, data sources like travel diaries collect real-world preferences. Walking trips from the New Zealand Household Travel Survey (HTS) can be routed on the Wellington network to show preferential areas of the city for pedestrian movement.\nThe interactive map shows the slope of the streets that have recorded walking trips. Unlike the map of the city, we see most walking trips around preferentially happening in the amenity rich city centre as well as the flatter southern suburbs.\nStreets with walking trips are strongly biased (75%) towards flat or mild gradients. The prevalence of these low gradient streets is only 54% in the whole of the city (Table 2.1) with even lower prevalence of 38% for residential streets (Table 2.2).\n\n\n\n\n\nSlope\n%\n\n\n\n\n0-3: flat\n61.4\n\n\n3-5: mild\n13.8\n\n\n5-8: medium\n11.6\n\n\n8-10: hard\n4.0\n\n\n10-20: extreme\n6.4\n\n\n&gt;20: impossible\n2.8\n\n\n\n\n\n\n\n:::"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "[1] G.\nD. Simons, “Network centrality measures and their correlation to\nmixed-uses at the pedestrian-scale,” Jul. 01, 2021. http://arxiv.org/abs/2106.14040\n(accessed Dec. 29, 2022).\n\n\n[2] C.\nBarrington-Leigh and A. Millard-Ball, “Global trends toward urban\nstreet-network sprawl,” Proc. Natl. Acad. Sci. U.S.A.,\nvol. 117, no. 4, pp. 1941–1950, Jan. 2020, doi: 10.1073/pnas.1905232116.\n\n\n[3] L.\nplanning Advisory Committee, “Putting london back on its feet: A\nstrategy for walking in london,” 1997.\n\n\n[4] S.\nRavi, “Walking in Wellington,” Nov. 29, 2020.\nhttps://shriv-portfolio.netlify.app/post/walkability-1/\n(accessed Aug. 27, 2023).\n\n\n[5] S.\nRavi, “Walking in Wellington - insights from\nmodelling,” Nov. 29, 2020. https://shriv-portfolio.netlify.app/post/walkability-4/\n(accessed Aug. 27, 2023).\n\n\n[6] S.\nRavi, “Walking in Wellington - validation and\nvisualisation,” Dec. 08, 2020. https://shriv-portfolio.netlify.app/post/walkability-3/\n(accessed Aug. 27, 2023).\n\n\n[7] S.\nRavi, “Walking in Wellington - walkability\nmetrics,” Nov. 29, 2020. https://shriv-portfolio.netlify.app/post/walkability-2/\n(accessed Aug. 27, 2023).\n\n\n[8] shriv,\n“Shriv/accessibility-series.” Nov. 18, 2019. Accessed: Aug.\n27, 2023. [Online]. Available: https://github.com/shriv/accessibility-series\n\n\n[9] M.\nJ. Campbell, P. E. Dennison, B. W. Butler, and W. G. Page, “Using\ncrowdsourced fitness tracker data to model the relationship between\nslope and travel rates,” Applied Geography, vol. 106,\npp. 93–107, May 2019, doi: 10.1016/j.apgeog.2019.03.008.\n\n\n[10] M.\nF. Goodchild, “Beyond Tobler’s Hiking\nFunction,” Geogr. Anal., vol. 52, no. 4, pp.\n558–569, Oct. 2020, doi: 10.1111/gean.12253.\n\n\n[11] “Dodgr: Distances on\nDirected Graphs in R.” Urban\nAnalyst, Aug. 24, 2023. Accessed: Aug. 27, 2023. [Online].\nAvailable: https://github.com/UrbanAnalyst/dodgr\n\n\n[12] J.\nW. Hollister, “Elevatr.” Jul. 27, 2023. Accessed: Aug. 27,\n2023. [Online]. Available: https://github.com/jhollist/elevatr\n\n\n[13] “Luukvdmeer/sfnetworks: Tidy\nGeospatial Networks in R.” https://github.com/luukvdmeer/sfnetworks/\n(accessed Aug. 27, 2023).\n\n\n[14] “Slopes package.”\nrOpenSci, Aug. 23, 2023. Accessed: Aug. 27, 2023. [Online].\nAvailable: https://github.com/ropensci/slopes\n\n\n[15] “RPubs -\nTobler&#39;s Hiking Function\nRevisited.” https://rpubs.com/chrisbrunsdon/hiking\n(accessed Aug. 27, 2023).\n\n\n[16] W.\nTobler, “Three Presentations on Geographical\nAnalysis and Modeling: Non- Isotropic\nGeographic Modeling; Speculations on the\nGeometry of Geography; and Global\nSpatial Analysis (93-1),” Feb. 1993, Accessed: Aug. 27,\n2023. [Online]. Available: https://escholarship.org/uc/item/05r820mz"
+  },
+  {
+    "objectID": "walkability.html#accounting-for-street-slope",
+    "href": "walkability.html#accounting-for-street-slope",
+    "title": "4  Walkability",
+    "section": "4.2 Accounting for street slope",
+    "text": "4.2 Accounting for street slope"
+  }
+]
