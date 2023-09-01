@@ -23,9 +23,7 @@ $\nu$, is a shifted exponential with three parameters $a$, $b$ and $c$ which giv
 
 
 $$
-
 \nu = a \exp^{(-b|slope + c|)}
-
 $$
 
 Note that $slope$ in the equation is a dimensionless quantity: $\frac{dh}{dx}$  (or, rise / run). Terminology-wise, 
