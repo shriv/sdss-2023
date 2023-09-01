@@ -46,21 +46,14 @@
     "href": "walkability.html#accounting-for-hills",
     "title": "4  Walkability",
     "section": "4.2 Accounting for hills",
-    "text": "4.2 Accounting for hills\nA simple search led me to Naismith’s Rule and then to Tobler’s Hiking Function to calculate travel time as a function of distance and gradient.\nI’ve chosen to go with Tobler’s without much rationale other than its simple form. Tobler’s hiking function for speed, \\(\\nu\\), is a shifted exponential with three parameters \\(a\\), \\(b\\) and \\(c\\) which give the fastest speed, speed retardation due to gradient and shift from zero respectively.\n$$\n= a ^{(-b|slope + c|)} $$\nNote that \\(slope\\) in the equation is a dimensionless quantity: \\(\\frac{dh}{dx}\\) (or, rise / run). Terminology-wise, \\(slope\\), is equivalent to gradient and inclination. Tobler’s function can also be written with slope in degrees ( \\(^\\circ\\)). Similarly, speed is given in in km/h and can be converted to a travel time in minutes with a multiplicative factor, (60/1000). Both time and speed versions of Tobler’s function are shown in the graph below.\n Figure 3.1 shows"
+    "text": "4.2 Accounting for hills\nWhile Tobler’s function for calculating speed given a hill gradient is rather old, it is still the best option available when real world data is not available for re-parametrisation. Tobler’s hiking function for speed, \\(\\nu\\), is a shifted exponential with three parameters \\(a\\), \\(b\\) and \\(c\\) which give the fastest speed, speed retardation due to gradient and shift from zero respectively.\n$$\n= a ^{(-b|slope + c|)}\n$$\nNote that \\(slope\\) in the equation is a dimensionless quantity: \\(\\frac{dh}{dx}\\) (or, rise / run). Terminology-wise, \\(slope\\), is equivalent to gradient and inclination. Similarly, speed is given in in km/h and can be converted to a travel time in minutes with a multiplicative factor, (60/1000). Both time and speed versions of Tobler’s function are shown in the graph below.\n\n\n\nFigure 4.3: Tobler’s function parameters from original paper [2] and Chris Brunsdon’s form with parameters fitted with Strava data [3].\n\n\nFigure 4.4 shows how speed by hill gradient converts to travel time by hill gradient. Flat curves for 3km/h and 5km/h are shown for reference. Both Tobler’s and Brundon’s curves are skewed - with the highest speeds for negative gradients (i.e. while walking downhill). Tobler’s parameters correspond to a 5km/h speed at zero gradient.\n\n\n\nFigure 4.4: Visualisation of Tobler’s functional form as time and speed using parameters from original paper and Chris Brunsdon’s form with parameters fitted with Strava data"
   },
   {
     "objectID": "walkability.html#differences-due-to-hills",
     "href": "walkability.html#differences-due-to-hills",
     "title": "4  Walkability",
     "section": "4.3 Differences due to hills",
-    "text": "4.3 Differences due to hills\nWhile the Wellington City Council (WCC) plans playgrounds based on distance, the presence of hills can increase travel times by up 20 minutes."
-  },
-  {
-    "objectID": "walkability.html#walkability-by-suburb",
-    "href": "walkability.html#walkability-by-suburb",
-    "title": "4  Walkability",
-    "section": "4.4 Walkability by suburb",
-    "text": "4.4 Walkability by suburb\n\n\n\nForest plot showing average (\\(\\mu\\)) and spread (\\(\\sigma\\)) in walking time to the nearest playground.\n\n\n\n\n\n\n[1] L. planning Advisory Committee, “Putting london back on its feet: A strategy for walking in london,” 1997."
+    "text": "4.3 Differences due to hills\nWhile the Wellington City Council (WCC) plans playgrounds based on distance, the presence of hills can increase travel times considerably. Heatmaps are useful for a holistic picture but lack connection to the average citizen’s day to day life. A simple Bayesian model of average walking times and spread in walking times for the suburb connects citizens better to their expected walking times as well as how suitable their neighbourhoods are for walking.\n\n\n\nFigure 4.5: Forest plot showing average (\\(\\mu\\)) and spread (\\(\\sigma\\)) in walking time to the nearest playground.\n\n\n\n\n\n\n[1] L. planning Advisory Committee, “Putting london back on its feet: A strategy for walking in london,” 1997.\n\n\n[2] W. Tobler, “Three Presentations on Geographical Analysis and Modeling: Non- Isotropic Geographic Modeling; Speculations on the Geometry of Geography; and Global Spatial Analysis (93-1),” Feb. 1993, Accessed: Aug. 27, 2023. [Online]. Available: https://escholarship.org/uc/item/05r820mz\n\n\n[3] “RPubs - Tobler&#39;s Hiking Function Revisited.” https://rpubs.com/chrisbrunsdon/hiking (accessed Aug. 27, 2023)."
   },
   {
     "objectID": "preference.html",

@@ -27,6 +27,7 @@ format:
     self-contained: true
     number-sections: true
     tbl-cap-location: top
+    html-math-method: mathml
 execute:
   echo: false
   warning: false
