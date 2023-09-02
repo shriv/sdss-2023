@@ -1,8 +1,7 @@
 
 # Walking preference {#sec-preference}
-While quantitative walkability indicators measure the "potential for walking", data sources like travel diaries collect real-world preferences. Walking trips from the New Zealand Household Travel Survey (HTS) can be routed on the Wellington network to show preferential areas of the city for pedestrian movement. 
+While quantitative walkability indicators measure the "potential for walking", data sources like travel diaries collect real-world preferences. Walking trips from three years of the New Zealand Household Travel Survey (HTS) were routed on the Wellington network to show preferential areas of the city for pedestrian movement. 
 
-The interactive map shows the slope of the streets that have recorded walking trips. Unlike the map of the city, we see most walking trips around preferentially happening in the amenity rich city centre as well as the flatter southern suburbs. 
 
 ```{r}
 library(sf)
@@ -46,6 +45,7 @@ routes <- st_read("../../routes_3years_data/routes.shp") |>
     ) |> 
   arrange(slp_cls) 
 ```
+
 Streets with walking trips are strongly biased (70%) towards flat or mild gradients. The prevalence of these low gradient streets is only 44% in the whole of the city (@tbl-all-streets) with even lower prevalence of 33% for residential streets (@tbl-res-streets). 
 
 ```{r}

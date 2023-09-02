@@ -20,6 +20,7 @@ wgtn_lines$slope_class = wgtn_lines$slope %>%
     right = F
   )
 ```
+
 New Zealand sits on the Pacific "Ring of Fire". The whole country has been shaped over time through various seismic activities - including the present-day geography of Wellington. @fig-te-ara shows land uplift along the shorelines creating extensive flat area in the city. This uplifted land is critical to the city's CBD, potential high density development and the airport. 
 
 

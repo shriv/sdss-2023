@@ -4556,22 +4556,38 @@ vertical-align: -.125em;
 
 <section id="sec-preface" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Preface</h1>
-<p>Walkability is a subset of quantitative accessibility analyses (which tend to be multi-modal). Walkability is also a qualitative framework of theoretical concepts that underpin people’s preference for walking. A useful framework that considers multiple facets of walking is <strong>the 5C’s of walkability</strong> <span class="citation" data-cites="londonplanningadvisorycommitteePuttingLondonBack1997"><a href="references.html#ref-londonplanningadvisorycommitteePuttingLondonBack1997" role="doc-biblioref">[1]</a></span>:</p>
+<p>Walkability is a subset of quantitative accessibility analyses (which tend to be multi-modal) as well as a framework that underpin people’s preference for walking. For example, <strong>the 5C’s of walkability</strong> <span class="citation" data-cites="londonplanningadvisorycommitteePuttingLondonBack1997"><a href="references.html#ref-londonplanningadvisorycommitteePuttingLondonBack1997" role="doc-biblioref">[1]</a></span> that considers:</p>
 <ul>
-<li>Convenient</li>
-<li>Convivial</li>
-<li>Connected</li>
-<li>Comfortable</li>
-<li>Conspicuous</li>
+<li>Convenience</li>
+<li>Conviviality</li>
+<li>Connectedness</li>
+<li>Comfort</li>
+<li>Conspicuousness</li>
 </ul>
-<p>Convenient and connected include various aspects of the built environment across urban form and transport infrastructure including provision of walking paths, density of amenities, convenience of routes (direct rather than roundabout) etc. Spatial data science is especially relevant here e.g.&nbsp;point pattern analysis (of amenities) and spatial network analysis to better understand the structure of connectivity and potential routes.</p>
+<p>Convenience and connectedness include various aspects of the built environment across urban form and transport infrastructure including provision of walking paths, density of amenities, convenience of routes (direct rather than roundabout) etc. Spatial data science is especially relevant here e.g.&nbsp;point pattern analysis (of amenities) and spatial network analysis to better understand the structure of connectivity and potential routes.</p>
 <p>Convenience is also influenced by the natural topography. While most cities of the world have come up and spread along areas of flat and mild gradients, inclined streets exist due to nearby hills and mountains. Pronounced examples of predominantly hilly cities include São Paolo, Brazil and Wellington, New Zealand. Unfortunately, walkability analyses typically ignore the impact of street inclines since the majority of large cities are predominantly flat.</p>
-<p><a href="hilly_city.html"><span>Chapter&nbsp;2</span></a> describes the topographical challenge for Wellington walkers - especially those in suburbs. <a href="network_analysis.html"><span>Chapter&nbsp;3</span></a> outlines how network routing can be tuned to better represent real world walking times. <a href="walkability.html"><span>Chapter&nbsp;4</span></a> uses network routing to analyse a simple case of local walkability questioning whether the walk <em>to</em> the park is as easy as a walk <em>in</em> the park? <a href="preference.html"><span>Chapter&nbsp;5</span></a> compares potential for walking to actual walking.</p>
+<p>The analysis featured in the following chapters considers <em>local walkability</em> to better understand options for walking all around the city. The quantitative approaches are described in greater detail in a series of blog posts (<span class="citation" data-cites="raviWalkingWellington2020"><a href="references.html#ref-raviWalkingWellington2020" role="doc-biblioref">[2]</a></span>, <span class="citation" data-cites="raviWalkingWellingtonWalkability2020"><a href="references.html#ref-raviWalkingWellingtonWalkability2020" role="doc-biblioref">[3]</a></span>, <span class="citation" data-cites="raviWalkingWellingtonInsights2020"><a href="references.html#ref-raviWalkingWellingtonInsights2020" role="doc-biblioref">[4]</a></span>, <span class="citation" data-cites="raviWalkingWellingtonValidation2020"><a href="references.html#ref-raviWalkingWellingtonValidation2020" role="doc-biblioref">[5]</a></span>) and in Jupyter notebooks on Github <span class="citation" data-cites="shrivShrivAccessibilityseries2019"><a href="references.html#ref-shrivShrivAccessibilityseries2019" role="doc-biblioref">[6]</a></span>. This web book is a high level collation of the above resources with a couple of minor additions summarising street slopes of the city (<a href="hilly_city.html"><span>Chapter&nbsp;2</span></a>) and walking preference (<a href="preference.html"><span>Chapter&nbsp;5</span></a>).</p>
+<p><a href="hilly_city.html"><span>Chapter&nbsp;2</span></a> describes the topographical challenge for Wellington walkers - especially those in suburbs. <a href="network_analysis.html"><span>Chapter&nbsp;3</span></a> outlines how network routing can be tuned to better represent real world walking times. <a href="walkability.html"><span>Chapter&nbsp;4</span></a> uses network routing to analyse a simple case of local walkability questioning whether the walk <em>to</em> the park is as easy as a walk <em>in</em> the park? <a href="preference.html"><span>Chapter&nbsp;5</span></a> routes walking trips from a travel survey and compares where people actually walk in terms of street gradients.</p>
 
 
 <div id="refs" class="references csl-bib-body" role="list" style="display: none">
 <div id="ref-londonplanningadvisorycommitteePuttingLondonBack1997" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline">L. planning Advisory Committee, <span>“Putting london back on its feet: A strategy for walking in london,”</span> 1997.</div>
+</div>
+<div id="ref-raviWalkingWellington2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">S. Ravi, <span>“Walking in <span>Wellington</span>,”</span> Nov. 29, 2020. <a href="https://shriv-portfolio.netlify.app/post/walkability-1/">https://shriv-portfolio.netlify.app/post/walkability-1/</a> (accessed Aug. 27, 2023).</div>
+</div>
+<div id="ref-raviWalkingWellingtonWalkability2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">S. Ravi, <span>“Walking in <span>Wellington</span> - walkability metrics,”</span> Nov. 29, 2020. <a href="https://shriv-portfolio.netlify.app/post/walkability-2/">https://shriv-portfolio.netlify.app/post/walkability-2/</a> (accessed Aug. 27, 2023).</div>
+</div>
+<div id="ref-raviWalkingWellingtonInsights2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">S. Ravi, <span>“Walking in <span>Wellington</span> - insights from modelling,”</span> Nov. 29, 2020. <a href="https://shriv-portfolio.netlify.app/post/walkability-4/">https://shriv-portfolio.netlify.app/post/walkability-4/</a> (accessed Aug. 27, 2023).</div>
+</div>
+<div id="ref-raviWalkingWellingtonValidation2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">S. Ravi, <span>“Walking in <span>Wellington</span> - validation and visualisation,”</span> Dec. 08, 2020. <a href="https://shriv-portfolio.netlify.app/post/walkability-3/">https://shriv-portfolio.netlify.app/post/walkability-3/</a> (accessed Aug. 27, 2023).</div>
+</div>
+<div id="ref-shrivShrivAccessibilityseries2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">shriv, <span>“Shriv/accessibility-series.”</span> Nov. 18, 2019. Accessed: Aug. 27, 2023. [Online]. Available: <a href="https://github.com/shriv/accessibility-series">https://github.com/shriv/accessibility-series</a></div>
 </div>
 </div>
 </section>

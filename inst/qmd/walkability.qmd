@@ -41,23 +41,20 @@ $slope$, is equivalent to gradient and inclination. Speed is given in in km/h an
 
 ## Differences due to hills
 
-Tobler's function indicates that slopes can increase travel times considerably. Heatmaps like @fig-map-dist-time are useful for a holistic picture but lack connection to the average citizen's day to day life. Instead, the complexity from the walking time distribution is simplified with a Bayesian model of average walking times and spread in walking times by suburb. This connects citizens better to their expected walking times as well as how suitable their neighbourhoods are for walking. 
+Tobler's function indicates that slopes can increase travel times considerably. Heatmaps like @fig-map-dist-time are useful for a holistic picture but lack connection to the average citizen's day to day life. Instead, the complexity from the walking time distribution is simplified with a Bayesian model of average walking times and spread in walking times by suburb. The forest plot in @fig-forest-plot summarising the Bayesian model can be summarised even further with a quadrant classification. We can get the suburbs that lie in the four quadrants with some simple data filters. Popular suburbs of the city are listed from best to worst (in terms of local walkability to playgrounds).
 
-
+:::panel-tabset
+### Forest plot
 ![Forest plot showing average ($\mu$) and spread ($\sigma$) in walking time to the nearest playground.](assets/modelling-suburbs.png){#fig-forest-plot}
 
 
-The forest plot can be summarised with a quadrant classification. 
-
-
+### Quadrant classification
 |                      | High $\mu_{norm}$ | Low $\mu_{norm}$ |
 | :------------------: | :------------: | :-----------: |
 | Low $\sigma_{norm}$  | Consistently good walkability  |  Consistent but poor walkability |
 | High $\sigma_{norm}$  | Poor walkability for most areas |  Good walkability for some areas |
 
-
-We can get the suburbs that lie in the 4 quadrants listed above with some simple data filters. The list goes from the best suburbs to the worst in terms of consistent walkability to playgrounds.
-
+### Suburb summary
 
 | suburb | quadrant  |characteristic |
 |--- |--- |--- |
@@ -71,4 +68,5 @@ We can get the suburbs that lie in the 4 quadrants listed above with some simple
 |Khandallah|High $\sigma$ and $\mu$| Poor walkability for most areas|
 |Karori|High $\sigma$ and $\mu$| Poor walkability for most areas|
 
+:::
 
