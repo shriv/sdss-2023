@@ -46,7 +46,7 @@ routes <- st_read("../../routes_3years_data/routes.shp") |>
   arrange(slp_cls) 
 ```
 
-Streets with walking trips are strongly biased (70%) towards flat or mild gradients. The prevalence of these low gradient streets is only 44% in the whole of the city (@tbl-all-streets) with even lower prevalence of 33% for residential streets (@tbl-res-streets). 
+Streets with walking trips are strongly biased (70%) towards flat or mild gradients. The prevalence of these low gradient streets is only 44% in the whole of the city (@tbl-all-streets) with even lower prevalence of 33% for residential streets (@tbl-res-streets). This strong preference for walking on flat gradients suggests that local walkability in the Wellington suburbs is very low. Any future considerations for urban form that emphasises local active travel must conduct further research connecting potential and actual trips or risk negligible behaviour change. 
 
 ```{r}
 # summary - all

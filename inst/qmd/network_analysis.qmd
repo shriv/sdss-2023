@@ -14,7 +14,8 @@ Key Python packages for the analyses are `osmnx` and `pandana`. `osmnx` not only
 Analyses in @sec-hilly-city and @sec-preference were carried out in R and relied on `osmdata`, `sf`, `sfnetworks` @LuukvdmeerSfnetworksTidy, `elevatr` @hollisterElevatr2023 and `slopes` @SlopesPackage2023. It's possible to convert the walkability analysis from Python to R but it's likely that `sfnetworks` will not be as performant as `pandana` for many-to-many routing at the scale of a city. `dodgr` @DodgrDistancesDirected2023 looks promising in this regard. One of the advantages of R (over Python) is the sophistication of packages for data visualisation and statistical modelling.  
 
 
-## Converting distance to time
+## Converting distance to time {#sec-dist-time-conversion}
+
 Distance is a good metric for planners as it is objective. However, citizens rarely think in this metric while walking. Travel times according to their own abilities is the rubric of choice. This can pose problems as people's sense of time can be subjective and highly variable. The best way to address the variability is by fitting distance to travel time functions to data collected from travel surveys or fitness apps @campbellUsingCrowdsourcedFitness2019 @goodchildToblerHikingFunction2020 @RPubsTobler39. Unfortunately, collecting the relevant data for the area in question and fitting the appropriate functions is a research project in its own right so the simplest and most well-known approach, Tobler's Hiking function @toblerThreePresentationsGeographical1993, has been used in this study. 
 
 Tobler’s hiking function for speed, $\nu$, is a shifted exponential with three parameters $a$, $b$ and $c$ which give the fastest speed, speed retardation due to gradient and shift from zero respectively. Note that $slope$ in the equation is a dimensionless quantity: $\frac{dh}{dx}$  (or, rise / run). Terminology-wise, 

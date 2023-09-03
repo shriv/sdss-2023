@@ -6,19 +6,12 @@ This analysis considers _local walkability_ by calculating travel times to the c
 ![Locations of council playgrounds designed with a 600m catchment.](assets/wcc-playgrounds.png){width=80%, #fig-wcc-playgrounds}
 
 ## Distance and speed on hilly terrain
-Distance-based planning is convenient as it's easy to calculate and objective. However, it doesn't translate well to people's decision making which are typically time-centric as well as accounting for some or all of the 5Cs of walkability @londonplanningadvisorycommitteePuttingLondonBack1997. Hence, even simple distance to time conversions can be more informative to the layperson planning a walking trip to the park. @fig-map-dist-time shows a conversion from distance to time assuming a speed of 5km/h - a common conversion based on a fit adult e.g. [Section 3.4 in NZTA pedestrian planning and design guide](https://www.nzta.govt.nz/assets/resources/pedestrian-planning-guide/docs/pedestrian-planning-guide.pdf).  
-
+Distance-based planning is convenient as it's easy to calculate and objective. However, it doesn't translate well to people's decision making which are typically time-centric as well as accounting for some or all of the 5Cs of walkability (@sec-preface). Hence, even simple distance to time conversions can be more informative to the layperson planning a walking trip to the park. @fig-map-dist-time shows a conversion from distance to time assuming a speed of 5km/h - a common conversion based on a fit adult e.g. [Section 3.4 in NZTA pedestrian planning and design guide](https://www.nzta.govt.nz/assets/resources/pedestrian-planning-guide/docs/pedestrian-planning-guide.pdf). 
 
 ![Walkability maps coloured as both distance (m) and time (minutes).](assets/flat-walkability-dist-time-map.png){#fig-map-dist-time}
 
-As expected, the histograms of distance and time with a linear conversion look the same with the time variant being more useful for comparison with an upcoming trip - much like typical Google map direction checks. 
 
-![](assets/flat-walkability-dist-time-histogram.png){#fig-hist-dist-time}
-
-
-## Differences due to hills
-
-Tobler's function indicates that slopes can increase travel times considerably. Heatmaps like @fig-map-dist-time are useful for a holistic picture but lack connection to the average citizen's day to day life. Instead, the complexity from the walking time distribution is simplified with a Bayesian model of average walking times and spread in walking times by suburb. The forest plot in @fig-forest-plot summarising the Bayesian model can be summarised even further with a quadrant classification. We can get the suburbs that lie in the four quadrants with some simple data filters. Popular suburbs of the city are listed from best to worst (in terms of local walkability to playgrounds).
+Tobler's function indicates that slopes can increase travel times considerably (@sec-dist-time-conversion). Heatmaps like @fig-map-dist-time are useful for a holistic picture but lack connection to the average citizen's day to day life. Instead, the complexity from the walking time distribution is simplified with a Bayesian model of average walking times and spread in walking times by suburb. The forest plot in @fig-forest-plot summarising the Bayesian model can be summarised even further with a quadrant classification. We can get the suburbs that lie in the four quadrants with some simple data filters. Popular suburbs of the city are listed from best to worst (in terms of local walkability to playgrounds).
 
 :::panel-tabset
 ### Forest plot
