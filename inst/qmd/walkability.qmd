@@ -16,29 +16,6 @@ As expected, the histograms of distance and time with a linear conversion look t
 ![](assets/flat-walkability-dist-time-histogram.png){#fig-hist-dist-time}
 
 
-## Accounting for hills
-
-This analysis makes use of Tobler's function for calculating speed given a hill gradient. While this approach is rather old, it is still the best option when real world data is not available for re-parametrisation. Tobler’s hiking function for speed,
-$\nu$, is a shifted exponential with three parameters $a$, $b$ and $c$ which give the fastest speed, speed retardation due to gradient and shift from zero respectively.
-
-
-$$
-\nu = a \exp^{(-b|slope + c|)}
-$$
-
-Note that $slope$ in the equation is a dimensionless quantity: $\frac{dh}{dx}$  (or, rise / run). Terminology-wise, 
-$slope$, is equivalent to gradient and inclination. Speed is given in in km/h and can be converted to a travel time in minutes with a multiplicative factor, (60/1000). 
-
-@fig-toblers-params shows two versions of the same functional form i.e. with different co-efficients. Brunsdon's form has parameters fitted with Strava data @RPubsTobler39. A future version of this analysis would be best done with a similar approach of re-parametrising Tobler's function with real-world data. However, data from fitness apps like Strava should be used carefully as they are strongly biased and don't capture the variation of citizens of different ages and capabilities.
-
-
-![Tobler's function parameters from original paper @toblerThreePresentationsGeographical1993 and Chris Brunsdon's form with parameters fitted with Strava data @RPubsTobler39.](assets/toblers-params.png){#fig-toblers-params}
-
-
-@fig-toblers-fn shows how speed by hill gradient converts to travel time by hill gradient. Flat curves for 3km/h and 5km/h are shown for reference. Both Tobler's and Brundon's curves are skewed - with the highest speeds for negative gradients (i.e. while walking downhill). Tobler's parameters correspond to a 5km/h speed at zero gradient. 
-
-![Visualisation of Tobler's functional form as time and speed using parameters from original paper and Chris Brunsdon's form with parameters fitted with Strava data](assets/toblers-fn.png){#fig-toblers-fn}
-
 ## Differences due to hills
 
 Tobler's function indicates that slopes can increase travel times considerably. Heatmaps like @fig-map-dist-time are useful for a holistic picture but lack connection to the average citizen's day to day life. Instead, the complexity from the walking time distribution is simplified with a Bayesian model of average walking times and spread in walking times by suburb. The forest plot in @fig-forest-plot summarising the Bayesian model can be summarised even further with a quadrant classification. We can get the suburbs that lie in the four quadrants with some simple data filters. Popular suburbs of the city are listed from best to worst (in terms of local walkability to playgrounds).
