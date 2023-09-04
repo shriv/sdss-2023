@@ -28,7 +28,7 @@ New Zealand sits on the Pacific "Ring of Fire". The whole country has been shape
 
 
 ## All streets
-A gradient map of the city streets is dominated by orange and red. The summary table indicates that only 43% of the street network (by length) in the city is flat or mild gradients - the most comfortable for walkers for all abilities. 
+A gradient map of the city streets is dominated by orange and red. The summary table indicates that only 44% of the street network (by length) in the city is flat or mild gradients - the most comfortable for walkers for all abilities. 
 
 
 :::panel-tabset
@@ -82,7 +82,7 @@ all_summary |>
 :::
 
 
-Compared to Wellington, the streets of Lisbon and Leeds are predominantly flat. Zurich has extensive hilly streets in the outskirts but the expanse of green appears considerably larger than Wellington. 
+Compared to Wellington, the streets of Lisbon and Leeds are predominantly flat. Zurich has extensive hilly streets in the outskirts but the expanse of flat areas does appear considerably larger than Wellington. 
 
 ::: {#fig-elephants layout-ncol=3}
 
@@ -96,12 +96,14 @@ Street gradients for sample European cities from [here](https://ropensci.github.
 :::
 
 ## Residential
-@fig-hilly-suburbs shows the topographical division of urban form with tall buildings in the flat city centre and residential housing spreading all over the nearby hills. If we only consider residential areas, the topographical profile of the city slips with 67% of streets of at least medium gradient. 
+@fig-hilly-suburbs shows the topographical division of urban form with tall buildings in the flat city centre and residential housing spreading all over the nearby hills. If we only consider residential areas, the topographical profile of the city changes considerably with only 33% of the street network being easily walkable. 
 
+
+:::panel-tabset
+### Street view
 
 ![View of Wellington city (flat) and the surrounding hilly suburbs. Author's own photo.](assets/wgtn-hilly-suburbs.jpg){#fig-hilly-suburbs}
 
-:::panel-tabset
 ### Map
 ```{r}
 #| out-width: 100%
